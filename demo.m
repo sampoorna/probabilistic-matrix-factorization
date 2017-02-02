@@ -4,7 +4,7 @@ MAX_ITEMS = 3952;
 NUM_FACTORS = 20;
 fprintf(1,'Running Probabilistic Matrix Factorization (PMF) \n');
 load '/ml-1m/data_withoutrat_randcold2.mat';
-pmf
+pmf_modified
 
 restart=1;
 fprintf(1,'\nRunning Bayesian PMF\n');
