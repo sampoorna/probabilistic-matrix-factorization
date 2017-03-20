@@ -131,8 +131,8 @@ for epoch = epoch:maxepoch
 	 %save('../../../../../../research/connections/data/recsys/w1_M1_20.mat', 'w1_M1')
 	 %save('../../../../../../research/connections/data/recsys/w1_P1_20.mat', 'w1_P1')
 	 
-	 %save('../../data/ml-20m/w1_M1.mat', 'w1_M1')
-	 %save('../../data/ml-20m/w1_P1.mat', 'w1_P1')
+	 save(strcat(origdirec, '/w1_M1_', num2str(NUM_FACTORS), '.mat'), 'w1_M1')
+	 save(strcat(origdirec, '/w1_P1_', num2str(NUM_FACTORS), '.mat'), 'w1_P1')
   end
 
 end 
