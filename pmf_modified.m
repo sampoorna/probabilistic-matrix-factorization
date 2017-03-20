@@ -65,7 +65,7 @@ for epoch = epoch:maxepoch
 
   for batch = 1:numbatches
     fprintf(1,'epoch %d batch %d \r',epoch,batch);
-    N=floor(size(train_vec, 1)/(numbatches)); %10000; %% number training triplets per batch = total data points / number of batches
+    N=floor(size(train_vec, 1)/(numbatches)); %% number training triplets per batch = total data points / number of batches
 
     aa_p   = double(train_vec((batch-1)*N+1:batch*N,2));
     aa_m   = double(train_vec((batch-1)*N+1:batch*N,1)); %repmat(movie, size(aa_p, 1), 1); %
@@ -100,8 +100,10 @@ for epoch = epoch:maxepoch
     w1_P1_inc = momentum*w1_P1_inc + epsilon*dw1_P1/N;
     w1_P1 =  w1_P1 - w1_P1_inc;
   end 
+  
   epsilon = 0.998 * epsilon; % Update epsilon
-  %%%%%%%%%%%%%% Compute Predictions after Paramete Updates %%%%%%%%%%%%%%%%%
+  
+  %%%%%%%%%%%%%% Compute Predictions after Parameter Updates %%%%%%%%%%%%%%%%%
   pred_out = sum(w1_M1(aa_m,:).*w1_P1(aa_p,:),2);
   f_s = sum( (pred_out - rating).^2 + ...
         0.5*lambda*( sum( (w1_M1(aa_m,:).^2 + w1_P1(aa_p,:).^2),2)));
@@ -116,8 +118,8 @@ for epoch = epoch:maxepoch
   rating = double(probe_vec(:,3));
 
   pred_out = sum(w1_M1(aa_m,:).*w1_P1(aa_p,:),2) + mean_rating;
-  ff = find(pred_out>5); pred_out(ff)=5; % Clip predictions 
-  ff = find(pred_out<1); pred_out(ff)=1;
+  ff = find(pred_out>MAX_RATING); pred_out(ff)=MAX_RATING; % Clip predictions 
+  ff = find(pred_out<MIN_RATING); pred_out(ff)=MIN_RATING;
 
   err_valid(epoch) = sqrt(sum((pred_out- rating).^2)/NN);
   fprintf(1, 'epoch %4i batch %4i Training RMSE %6.4f  Test RMSE %6.4f  with learning step %f\n', ...
@@ -126,8 +128,8 @@ for epoch = epoch:maxepoch
 
   if (rem(epoch,10))==0
      %save pmf_weight w1_M1 w1_P1
-	 save('../../../../../../research/connections/data/recsys/w1_M1_20.mat', 'w1_M1')
-	 save('../../../../../../research/connections/data/recsys/w1_P1_20.mat', 'w1_P1')
+	 %save('../../../../../../research/connections/data/recsys/w1_M1_20.mat', 'w1_M1')
+	 %save('../../../../../../research/connections/data/recsys/w1_P1_20.mat', 'w1_P1')
 	 
 	 %save('../../data/ml-20m/w1_M1.mat', 'w1_M1')
 	 %save('../../data/ml-20m/w1_P1.mat', 'w1_P1')
