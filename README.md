@@ -4,11 +4,11 @@ Recommend
 
 Adapted PMF code to include linearly decreasing step size.
 
-Current model:
---------------
+Model:
+------
 - Probabilistic Matrix Factorization
 
-Reference:
+References:
 ----------
 - "Probabilistic Matrix Factorization", R. Salakhutdinov and A.Mnih., Neural Information Processing Systems 21 (NIPS 2008). Jan. 2008.
 - "Bayesian Probabilistic Matrix Factorization using MCMC", R. Salakhutdinov and A.Mnih., 25th International Conference on Machine Learning (ICML-2008) 
