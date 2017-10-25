@@ -3,7 +3,7 @@ Recommend
 =========
 
 Adapted PMF code to include linearly decreasing step size.
-Includes preprocessing Python script that can be adapted for any collaborative filtering dataset.
+Includes preprocessing Python script that can be adapted for most collaborative filtering dataset.
 
 Model:
 ------
