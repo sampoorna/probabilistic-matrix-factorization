@@ -3,7 +3,7 @@ Recommend
 =========
 
 Adapted PMF code to include linearly decreasing step size.
-Includes preprocessing Python script that can be adapted for most collaborative filtering dataset.
+Includes preprocessing Python script that can be adapted for most collaborative filtering datasets.
 
 Model:
 ------
@@ -13,7 +13,7 @@ References:
 ----------
 - "Probabilistic Matrix Factorization", R. Salakhutdinov and A.Mnih., Neural Information Processing Systems 21 (NIPS 2008). Jan. 2008.
 - "Bayesian Probabilistic Matrix Factorization using MCMC", R. Salakhutdinov and A.Mnih., 25th International Conference on Machine Learning (ICML-2008) 
-- Matlab code: http://www.cs.toronto.edu/~rsalakhu/BPMF.html
+- Original MATLAB code: http://www.cs.toronto.edu/~rsalakhu/BPMF.html
 - Sample dataset MovieLens 1M: https://grouplens.org/datasets/movielens/1m/
 
 Getting started:
