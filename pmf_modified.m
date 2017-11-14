@@ -1,6 +1,6 @@
-% Version 1.000
+% Version 1.2
 %
-% Code provided by Ruslan Salakhutdinov
+% Original code provided by Ruslan Salakhutdinov
 %
 % Permission is granted for anyone to copy, use, modify, or distribute this
 % program and accompanying programs and documents for any purpose, provided
@@ -23,9 +23,7 @@ if restart==1
   momentum=0; 
 
   epoch=1; 
-  maxepoch=1600; 
-
-  %load moviedata % Triplets: {user_id, movie_id, rating} 
+  maxepoch=1600;
 
   numbatches= 25; % Number of batches  
   num_m = MAX_ITEMS;  % Number of movies 
@@ -53,7 +51,6 @@ if restart==1
 
 end
 
-%for f = 1:NUM_FILES
   epoch=1;
   
   fprintf('Starting training .......\n');
@@ -126,16 +123,9 @@ for epoch = epoch:maxepoch
               epoch, batch, err_train(epoch), err_valid(epoch), epsilon);
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  if (rem(epoch,10))==0
-     %save pmf_weight w1_M1 w1_P1
-	 %save('../../../../../../research/connections/data/recsys/w1_M1_20.mat', 'w1_M1')
-	 %save('../../../../../../research/connections/data/recsys/w1_P1_20.mat', 'w1_P1')
-	 
+  if (rem(epoch,10))==0 
 	 save(strcat(origdirec, '/w1_M1_', num2str(NUM_FACTORS), '.mat'), 'w1_M1')
 	 save(strcat(origdirec, '/w1_P1_', num2str(NUM_FACTORS), '.mat'), 'w1_P1')
   end
-
-end 
-
-%end 
+end
 
